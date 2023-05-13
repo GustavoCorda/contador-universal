@@ -40,24 +40,24 @@ function restar() {
   
         document.getElementById("live-time").innerHTML = formattedDateTime;
   
-        var currentMinute = new Date(datetime).getMinutes(); // Obtener el minuto actual
-  
-        // Verificar cada segundo si el minuto ha cambiado
-        var checkMinuteInterval = setInterval(function() {
-          var newMinute = new Date().getMinutes(); // Obtener el nuevo minuto actual
-  
-          // Si el minuto ha cambiado, actualizar la hora mostrada en la pantalla
-          if (newMinute !== currentMinute) {
-            currentMinute = newMinute; // Actualizar el minuto actual
-            formattedDateTime = formatDateTime(new Date().getTime()); // Obtener la nueva fecha y hora formateada
-            document.getElementById("live-time").innerHTML = formattedDateTime;
-          }
-        }, 1000); // Verificar cada segundo
-  
-        // Detener la verificación cuando se cumpla un minuto completo
-        var stopCheckMinuteInterval = setTimeout(function() {
-          clearInterval(checkMinuteInterval);
-        }, (60 - currentMinute) * 1000); // Calcular el tiempo restante hasta el siguiente minuto completo
+        var currentMinute = new Date(datetime).getMinutes();
+
+  // Verificar cada segundo si el minuto ha cambiado
+  var checkMinuteInterval = setInterval(function() {
+    var newMinute = new Date().getMinutes();
+
+    // Si el minuto ha cambiado, actualizar la hora mostrada en la pantalla
+    if (newMinute !== currentMinute) {
+      currentMinute = newMinute;
+      formattedDateTime = formatDateTime(new Date().getTime());
+      document.getElementById("live-time").innerHTML = formattedDateTime;
+    }
+  }, 1000);
+
+  // Detener la verificación cuando se cumpla un minuto completo
+  var stopCheckMinuteInterval = setInterval(function() {
+    clearInterval(checkMinuteInterval);
+  }, (60 - currentMinute) * 1000); // Calcular el tiempo restante hasta el siguiente minuto completo
       })
       .catch(error => {
         console.log('Error al obtener la hora desde WorldTimeAPI:', error);
