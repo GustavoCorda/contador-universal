@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contador</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <label for="">¿Activar la descarga periódica del
+        archivo?</label>
+    <button id="startButton">Iniciar</button>
+
+  <section>
+    <button onclick="restar()" class="resta" id="resta">Restar</button>
+    <div id="mostrar" class="mostrar"> <span class="content"></span></div>
+    <button onclick="incrementar()" class="suma"  id="suma"></button>
+  </section>
+
+
+  <div class="time">
+  <p id="live-time"></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
